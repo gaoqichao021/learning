@@ -30,7 +30,6 @@ public class JsonUtil {
         if (null == object) {
             return null;
         }
-
         try {
             return objectMapper.writeValueAsString(object);
         } catch (JsonProcessingException e) {
@@ -40,6 +39,14 @@ public class JsonUtil {
         return null;
     }
 
+    /**
+     * 将json串转换为指定的对象
+     *
+     * @param jsonStr   json串
+     * @param classType 对象类型
+     * @param <T>
+     * @return 指定类型的对象
+     */
     public static <T> T jsonToObject(String jsonStr, Class<T> classType) {
         if (StringUtils.isEmpty(jsonStr)) {
             return null;
@@ -48,7 +55,7 @@ public class JsonUtil {
         try {
             return objectMapper.readValue(jsonStr, classType);
         } catch (IOException e) {
-            log.error("");
+            log.error(String.format("字符串%s转换成对象报错:", jsonStr), e);
         }
 
         return null;

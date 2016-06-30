@@ -41,6 +41,7 @@ dependencies {
     // third jar
     compile('org.apache.commons:commons-lang3:3.4')
     compile('org.apache.commons:commons-collections4:4.1')
+    compile('commons-codec:commons-codec:1.10')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
